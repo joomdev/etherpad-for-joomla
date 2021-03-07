@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+	<name>Etherpad</name>
+	<author>JoomDev</author>
+	<creationDate>January 2021</creationDate>
+	<copyright>Copyright 2021 www.joomdev.com</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@joomdev.com</authorEmail>
+	<authorUrl>http://www.joomdev.com</authorUrl>
+	<version>1.0</version>
+	<description>The Etherpad Plugins let's you connect either pad with your Joomla site!</description>
+	<scriptfile>script.install.php</scriptfile>
+   <files>
+		<filename plugin="etherpad">etherpad.php</filename>
+		<folder>etherpad</folder>
+		<folder>language</folder>
+		<folder>sql</folder>
+	</files> 
+	<install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+	<config>
+	<fields name="params">
+	  <fieldset name="basic" label="PLG_SYSTEM_ETHERPAD_BASIC_OPTION" description="" >	
+		<field name="post_url" type="text" default="" label="ETHERPAD_POST_URL" description="ETHERPAD_POST_URL"/>
+		<field name="api_key" type="text" default="" label="ETHERPAD_API_KEY" description="ETHERPAD_API_KEY"/>
+		<field name="cookie_domain" type="text" default="" label="ETHERPAD_COOKIE_DOMAIN" description="ETHERPAD_COOKIE_DOMAIN"/>
+	 </fieldset>
+	</fields>	
+	</config>	
+</extension>
